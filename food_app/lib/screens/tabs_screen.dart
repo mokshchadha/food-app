@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/widgets/main_drawer.dart';
 import './favourite_screen.dart';
 import './categories_screen.dart';
 
@@ -31,6 +32,7 @@ class _TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MainDrawer(),
       appBar: AppBar(title: Text(_pages[_selectedPageIdx]['title'] as String)),
       body: _pages[_selectedPageIdx]['widget'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
