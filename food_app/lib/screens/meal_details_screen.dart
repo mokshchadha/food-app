@@ -6,6 +6,11 @@ import '../data/dummy_data.dart';
 class MealDetailsScreen extends StatelessWidget {
   static const String routeName = '/mealDetails';
 
+  final Function toggelFavourite;
+  final Function isMealFavourite;
+
+  MealDetailsScreen(this.toggelFavourite, this.isMealFavourite);
+
   @override
   Widget build(BuildContext context) {
     final routeArgs =
@@ -75,9 +80,9 @@ class MealDetailsScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.delete),
+        child: Icon(isMealFavourite(mealId) ? Icons.star : Icons.star_border),
         onPressed: () {
-          Navigator.of(context).pop(mealId);
+          toggelFavourite(mealId);
         },
       ),
     );
